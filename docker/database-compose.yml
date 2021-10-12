@@ -1,0 +1,17 @@
+version: "3.4"
+services:
+  schemas_db:
+    build:
+      context: ".."
+      dockerfile: "docker/Dockerfile-postgres"
+    # env_file:
+    #   - ../.env_staging
+    hostname: schemas_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 35432:35432
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+      - ./dbschemas:/dumps

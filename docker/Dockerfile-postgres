@@ -1,0 +1,4 @@
+FROM postgis/postgis
+
+#ADD docker/dbschemas/* /docker-entrypoint-initdb.d/#
+ADD docker/postgres_setup/* /docker-entrypoint-initdb.d/
